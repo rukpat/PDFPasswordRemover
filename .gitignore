@@ -3,3 +3,6 @@ obj/
 *.exe
 *.dll
 *.pdb
+*.user
+*.suo
+*.userprefs
