@@ -1,0 +1,35 @@
+/* 
+TO Build and Create Installer
+1. Open the Command Palette again (Ctrl+Shift+P or Cmd+Shift+P).
+2. Type "Tasks: Run Task" and press Enter.
+3. Choose "create-installer" from the list of tasks.
+*/
+ 
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "build",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "build",
+                "${workspaceFolder}/PDFPasswordRemover.csproj",
+                "/property:GenerateFullPaths=true",
+                //"/consoleloggerparameters:NoSummary",
+                "-c", "Release" 
+            ],
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "create-installer",
+            "command": "iscc", // Inno Setup Compiler command
+            "type": "shell",  // Run as a shell command
+            "args": [
+                //"/Q",         // Quiet mode (no UI)
+                "${workspaceFolder}/Installer/PDFPasswordRemover.iss" 
+            ],
+            "dependsOn": "build" // Run this task after the "build" task
+        }
+    ]
+}

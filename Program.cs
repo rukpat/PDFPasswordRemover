@@ -1,4 +1,13 @@
-using System.Runtime.InteropServices;
+// To Build code run "dotnet build -c Release"
+// To Build run installer open ".\Installer\ODFPasswordRemover.iss" file in Inno Setup  OR dotnet run create-installer
+
+/* OR
+TO Build and Create Installer
+1. Open the Command Palette again (Ctrl+Shift+P or Cmd+Shift+P).
+2. Type "Tasks: Run Task" and press Enter.
+3. Choose "create-installer" from the list of tasks.
+*/
+
 using PdfSharpCore.Pdf;
 using PdfSharpCore.Pdf.IO;
 using PdfSharpCore.Pdf.Security;
@@ -108,7 +117,7 @@ namespace PDFPasswordRemover
                                     document.Save(newFilePath);
 
                                     //Console.WriteLine($"SUCCESS: Removed password from: {Path.GetFileName(filePath)}");
-                                    WriteColor(ConsoleColor.Green, "SUCCESS: Removed password from: ", Path.GetFileName(filePath));
+                                    WriteColor(ConsoleColor.Green, "SUCCESS:   Removed password from: ", Path.GetFileName(filePath));
                                 }
                             }
                         }
@@ -116,7 +125,7 @@ namespace PDFPasswordRemover
                         {
                             // PDF is not password protected
                             //Console.WriteLine($"SKIPPING: File is not password-protected: {Path.GetFileName(filePath)}");
-                            WriteColor(ConsoleColor.DarkCyan, "SKIPPING: File is not password-protected: ", Path.GetFileName(filePath));
+                            WriteColor(ConsoleColor.DarkCyan,"SKIPPING:  File is not password-protected: ", Path.GetFileName(filePath));
 
                         }
 
@@ -124,7 +133,7 @@ namespace PDFPasswordRemover
                     else
                     {
                         //Console.WriteLine($"SKIPPING: File is not a PDF: {Path.GetFileName(filePath)}");
-                        WriteColor(ConsoleColor.DarkCyan, "SKIPPING: File is not a PDF: ", Path.GetFileName(filePath));
+                        WriteColor(ConsoleColor.DarkCyan,"SKIPPING:  File is not a PDF: ", Path.GetFileName(filePath));
                     }
                 }
                 catch (PdfReaderException ex)
@@ -132,14 +141,14 @@ namespace PDFPasswordRemover
                     if (ex.Message.Contains("password is invalid"))
                     {
                         //Console.WriteLine($"ERROR: Incorrect password for: {Path.GetFileName(filePath)}");
-                        WriteColor(ConsoleColor.Red, "ERROR: Incorrect password for: ", Path.GetFileName(filePath));
+                        WriteColor(ConsoleColor.Red,     "ERROR:     Incorrect password for: ", Path.GetFileName(filePath));
                     }
                     else
                     {
                         //Console.WriteLine($"ERROR: Unsupported security settings for: {Path.GetFileName(filePath)} (Details: {ex.Message})");
                         var cleanedMessage = ex.Message;
                         cleanedMessage = cleanedMessage.Replace("If you think this is a bug in PDFsharp, please send us your PDF file.", "").TrimEnd();
-                        WriteColor(ConsoleColor.DarkRed, "UNKNOWN ERROR: ", Path.GetFileName(filePath), cleanedMessage);
+                        WriteColor(ConsoleColor.DarkRed, "EXCEPTION: ", Path.GetFileName(filePath), cleanedMessage);
                     }
                 }
                 catch (Exception ex)
@@ -147,12 +156,13 @@ namespace PDFPasswordRemover
                     //Console.WriteLine($"ERROR: An error occurred while processing {Path.GetFileName(filePath)}: {ex.Message}");
                     var cleanedMessage = ex.Message;
                     cleanedMessage = cleanedMessage.Replace("If you think this is a bug in PDFsharp, please send us your PDF file.", "").TrimEnd();
-                    WriteColor(ConsoleColor.DarkRed, "UNKNOWN ERROR: ", Path.GetFileName(filePath), cleanedMessage);
+                    WriteColor(ConsoleColor.DarkRed, "EXCEPTION: ", Path.GetFileName(filePath), cleanedMessage);
                 }
 
                 Console.ResetColor();
             }
 
+            Console.WriteLine("");
             Console.WriteLine("All PDF files processed!");
             Console.WriteLine("Press ENTER key to continue...");
             while (Console.ReadKey(true).Key != ConsoleKey.Enter) { }

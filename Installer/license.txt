@@ -1,0 +1,5 @@
+Open license to do whatever
+
+Run at your own risk
+
+https://github.com/rukpat/PDFPasswordRemover
