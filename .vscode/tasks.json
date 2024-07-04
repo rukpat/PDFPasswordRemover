@@ -4,32 +4,38 @@ TO Build and Create Installer
 2. Type "Tasks: Run Task" and press Enter.
 3. Choose "create-installer" from the list of tasks.
 */
- 
 {
-    "version": "2.0.0",
-    "tasks": [
-        {
-            "label": "build",
-            "command": "dotnet",
-            "type": "process",
-            "args": [
-                "build",
-                "${workspaceFolder}/PDFPasswordRemover.csproj",
-                "/property:GenerateFullPaths=true",
-                //"/consoleloggerparameters:NoSummary",
-                "-c", "Release" 
-            ],
-            "problemMatcher": "$msCompile"
-        },
-        {
-            "label": "create-installer",
-            "command": "iscc", // Inno Setup Compiler command
-            "type": "shell",  // Run as a shell command
-            "args": [
-                //"/Q",         // Quiet mode (no UI)
-                "${workspaceFolder}/Installer/PDFPasswordRemover.iss" 
-            ],
-            "dependsOn": "build" // Run this task after the "build" task
-        }
-    ]
+  "version": "2.0.0",
+  "tasks": [
+    {    
+      "label": "build",
+      "command": "dotnet",
+      "type": "process",
+      "args": [
+        "build",
+        "${workspaceFolder}/PDFPasswordRemover.csproj",
+        "/property:GenerateFullPaths=true",
+        //"/consoleloggerparameters:NoSummary",
+        "-c", "Release" 
+      ],
+      "problemMatcher": "$msCompile"
+    },
+    {
+      "label": "Inno Setup: Compile Script",
+      "type": "process",
+      "command": "ISCC.exe",
+      "args": [
+        "${workspaceFolder}/Installer/PDFPasswordRemover.iss" 
+      ],
+      "presentation": {
+        "reveal": "always",
+        "echo": false
+      },
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "dependsOn": "build" // Run this task after the "build" task
+    }
+  ]
 }
