@@ -1,4 +1,4 @@
-![](.\Installer\PDFPasswordRemover.ico) # Remove PDF Passwords 
+# ![](.\Installer\PDFPasswordRemover.ico)  Remove PDF Passwords 
 
 A simple and effective tool to remove passwords from multiple PDF files within a folder. 
 
@@ -6,7 +6,7 @@ The core program can be run independently but is more effective with the Windows
 
 <insert Image>
 
-##Features
+## Features
 
 * **Batch Processing:** Quickly decrypt all password-protected PDFs in a specified directory.
 * **Customizable Output:** Choose to overwrite original files or create new files with the "_decrypted" prefix.  
@@ -14,13 +14,13 @@ The core program can be run independently but is more effective with the Windows
 * **Secure:** Password is not stored after execution.
 
 
-##Requirements
+## Requirements
 
 **Windows:** This tool is designed for Windows and requires the .NET 8.0 runtime.
 **PDFsharpCore Library:** This library is used for PDF manipulation. It is automatically installed by the installer.
 
 
-##Installation
+## Installation
 
 **Download:** Download the latest release [PDFPasswordRemoverWinInstaller.exe](.\Installer\Winx64Installer\) from the Releases page.
 **Install:** Double-click the installer and follow the on-screen instructions. 
@@ -37,14 +37,14 @@ Icon="{app dir}\PDFPasswordRemover.ico"
 ```
 
 
-###Usage
+### Usage
 
 **Right-Click:** Right-click on a folder containing PDF files in Windows Explorer.
 **Select:** Choose "Remove PDF Passwords from the context menu.
 **Enter Password:** Enter the password to decrypt the PDFs.
 
 
-##The Code
+## The Code
 The functional code is only in two places: the [Program.cs](Program.cs) file and the registry keys.
 Rest of the files are for 
 - Visual Studio Code 
@@ -58,22 +58,19 @@ If you are familar with the setup you compile the code as follows:
 4. Select `Inno Setup: Compile Script` 
 This should build the code and compile the Installer `PDFPasswordRemoverWinInstaller.exe` in the `.\Installer\Winx64Installer\` folder. 
 
-Use your favourite GenAI to debug through the errors.
+> [!TIP]
+> Use your favourite GenAI to debug through the errors.
 
 
-##WARNING: Use the code with caution.
-
-**Disclaimer**
-
-- This tool is intended for legal use only. Use it responsibly and respect copyright laws.
-- The author is not responsible for any misuse or damage caused by this software.
-
-
-**Contributing**
-
-Contributions are welcome! Please feel free to submit bug reports, feature requests, or p= ull requests.
-
-
-**License**
-
-This project is licensed under the MIT License. See the LICENSE file for details.
+> [!IMPORTANT] 
+> ## WARNING: Use the code with caution.
+>
+> **Disclaimer**
+> - This tool is intended for legal use only. Use it responsibly and respect copyright laws.
+> - The author is not responsible for any misuse or damage caused by this software.
+>
+> **Contributing**
+> Contributions are welcome! Please feel free to submit bug reports, feature requests, or p= ull requests.
+>
+> **License**
+> This project is licensed under the MIT License. See the LICENSE file for details.
