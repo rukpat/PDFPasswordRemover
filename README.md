@@ -6,6 +6,8 @@ The core program can be run independently but is more effective with the Windows
 
 <insert Image>
 
+
+
 ## Features
 
 * **Batch Processing:** Quickly decrypt all password-protected PDFs in a specified directory.
@@ -14,10 +16,12 @@ The core program can be run independently but is more effective with the Windows
 * **Secure:** Password is not stored after execution.
 
 
+
 ## Requirements
 
 **Windows:** This tool is designed for Windows and requires the .NET 8.0 runtime.
 **PDFsharpCore Library:** This library is used for PDF manipulation. It is automatically installed by the installer.
+
 
 
 ## Installation
@@ -26,8 +30,8 @@ The core program can be run independently but is more effective with the Windows
 **Install:** Double-click the installer and follow the on-screen instructions. 
 
 The installer will:
-1. Install the program in the Windows *Program File* or *user/localdata* directory depending on if admin permissions are provided.
-2. Create registry keys for the context menu entry in Windows Explorer:
+1. Install the program in the Windows *Program File* or *user/localdata* directory depending on the permissions used at the time of install.
+2. Create the following registry keys for the context menu entry in Windows Explorer:
 ```
 [HKEY_CLASSES_ROOT\Directory\shell\Remove PDF Passwords]
 Icon="{app dir}\PDFPasswordRemover.ico"
@@ -40,37 +44,46 @@ Icon="{app dir}\PDFPasswordRemover.ico"
 ### Usage
 
 **Right-Click:** Right-click on a folder containing PDF files in Windows Explorer.
+
 **Select:** Choose "Remove PDF Passwords from the context menu.
+
 **Enter Password:** Enter the password to decrypt the PDFs.
 
 
-## The Code
-The functional code is only in two places: the [Program.cs](Program.cs) file and the registry keys.
-Rest of the files are for 
-- Visual Studio Code 
-- Git integration
-- [Inno Setup] to create the installer (see  [https://jrsoftware.org/isinfo.php](https://jrsoftware.org/isinfo.php) for more details
+## How to compile the source code
+The core working functionality is only in the [Program.cs](Program.cs) file and the registry keys. 
 
-If you are familar with the setup you compile the code as follows: 
+Rest of the files are for:
+- Visual Studio Code IDE and build  
+- Github integration
+- [Inno Setup](https://jrsoftware.org/isinfo.php) to create the installer (see  [https://jrsoftware.org/isinfo.php](https://jrsoftware.org/isinfo.php) for more details)
+
+If you are familar with the above you can compile the code as follows: 
 1. In Visual Studio Code open the project folder as  `And folder to Workspace..` or `Open Folder...`
 2. Press: `Ctrl + Shift + P`
 3. Select `Task: Run Task`
 4. Select `Inno Setup: Compile Script` 
-This should build the code and compile the Installer `PDFPasswordRemoverWinInstaller.exe` in the `.\Installer\Winx64Installer\` folder. 
+This should start to build the code and the Installer and guide you to any missing dependency (e.g. **PDFsharpCore Library:**) 
+
+Installer `PDFPasswordRemoverWinInstaller.exe` file is created in the `.\Installer\Winx64Installer\` folder it all works. 
 
 > [!TIP]
 > Use your favourite GenAI to debug through the errors.
 
 
+
+## WARNING: Use the code with caution.
+
 > [!IMPORTANT] 
-> ## WARNING: Use the code with caution.
->
 > **Disclaimer**
+
 > - This tool is intended for legal use only. Use it responsibly and respect copyright laws.
 > - The author is not responsible for any misuse or damage caused by this software.
 >
 > **Contributing**
+
 > Contributions are welcome! Please feel free to submit bug reports, feature requests, or p= ull requests.
 >
 > **License**
+
 > This project is licensed under the MIT License. See the LICENSE file for details.
