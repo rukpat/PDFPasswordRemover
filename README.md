@@ -1,4 +1,5 @@
-# ![](.\Installer\PDFPasswordRemover.ico)  Remove PDF Passwords 
+![main image](./blob/main/Installer/PDFPasswordRemover.ico)
+#  Remove PDF Passwords 
 
 A simple and effective tool to remove passwords from multiple PDF files within a folder. 
 
@@ -29,13 +30,13 @@ This library is used for PDF manipulation. It is automatically installed by the 
 ## Installation
 
 **Download:** 
-- Download the latest release [PDFPasswordRemoverWinInstaller.exe](.\Installer\Winx64Installer\) from the Releases page.
+- Download the latest release **PDFPasswordRemoverWinx64Installer.exe** from the [Releases](./releases) page.
 
 **Install:** 
 - Double-click the installer and follow the on-screen instructions. 
 
 ### What is installed?
-1. Installs the program and its dependencies in the Windows *Program File* or *user/localdata* directory depending on the permissions used at the time of install.
+1. The program and its dependencies in the Windows **_Program File_** or **_<Users>\AppData\Local\Programs_** directory depending on the permissions used at the time of install.
 2. Creates the following registry keys for the context menu entry in Windows Explorer:
 ```
 [HKEY_CLASSES_ROOT\Directory\shell\Remove PDF Passwords]
@@ -58,7 +59,7 @@ Icon="{app dir}\PDFPasswordRemover.ico"
 
 
 ## How to compile the source code?
-The core working functionality is only in the [Program.cs](Program.cs) file and the [registry keys](.\Installer\ContextMenu.reg). 
+The core working functionality is only in the [Program.cs](Program.cs) file and the [registry keys](./blob/main/Installer/ContextMenu.reg). 
 
 Rest of the files are for:
 - Visual Studio Code - the IDE and build 
