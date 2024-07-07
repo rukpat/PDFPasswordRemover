@@ -63,11 +63,12 @@ The core program can be run independently but is more effective with the Windows
 ![Demo run](./images/Demo.png) 
 
 ## How to compile the source code?
-The core working functionality is only in the [Program.cs](Program.cs) file and the [registry keys](./Installer/ContextMenu.reg). 
+The core working functionality is in the [Program.cs](Program.cs) file and the [registry keys](./Installer/ContextMenu.reg). 
 
-Rest of the files are for:
+The remaining files are for:
 - Visual Studio Code - the IDE and build 
 - [Inno Setup](/Installer/PDFPasswordRemover.iss) - to create the installer (see  [https://jrsoftware.org/isinfo.php](https://jrsoftware.org/isinfo.php) for more details)
+- Git related
 
 Compile the code as follows: 
 1. In Visual Studio Code open the project folder as  `And Folder to Workspace..` or `Open Folder...`
@@ -75,7 +76,7 @@ Compile the code as follows:
 3. Select `Task: Run Task` (See [tasks.jason](./.vscode/tasks.json))
 4. Select `Inno Setup: Compile Script` (See [PDFPasswordRemover.iss](./Installer/PDFPasswordRemover.iss))
 
-This should throw errors for any missing dependency 😄! (e.g. **PDFsharpCore Library:**) 
+This should throw errors for any missing dependencies 😄 (e.g. **PDFsharpCore Library:**) !
 
 > [!TIP]
 > Use your favourite GenAI to debug and fix the errors 😊.
