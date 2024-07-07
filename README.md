@@ -55,7 +55,7 @@ The core program can be run independently but is more effective with the Windows
 **Select:** 
 - Choose "Remove PDF Passwords" from the context menu.
 
-![Context menu](./images/ContextMenu.png) 
+![Context menu](./images/ContextMenuExplorer.png) 
 
 **Enter Password:** 
 - Enter the password to decrypt the PDFs.
