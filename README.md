@@ -71,10 +71,11 @@ The remaining files are for:
 - Git related
 
 Compile the code as follows: 
-1. In Visual Studio Code open the project folder as  `And Folder to Workspace..` or `Open Folder...`
-2. Press: `Ctrl + Shift + P`
-3. Select `Task: Run Task` (See [tasks.jason](./.vscode/tasks.json))
-4. Select `Inno Setup: Compile Script` (See [PDFPasswordRemover.iss](./Installer/PDFPasswordRemover.iss))
+1. Use `Tools -> Nuget Package Manager -> Manage NuGet Packages for Solution...` and install `PDFSharpCore by Stefan Steige`
+2. In Visual Studio Code open the project folder as  `And Folder to Workspace..` or `Open Folder...`
+3. Press: `Ctrl + Shift + P`
+4. Select `Task: Run Task` (See [tasks.jason](./.vscode/tasks.json))
+5. Select `Inno Setup: Compile Script` (See [PDFPasswordRemover.iss](./Installer/PDFPasswordRemover.iss))
 
 This should throw errors for any missing dependencies 😄 (e.g. **PDFsharpCore Library:**) !
 
@@ -97,3 +98,6 @@ When it all works the installer file `PDFPasswordRemoverWinInstaller.exe` is cre
 >
 > **License**
 > - This project is licensed under the MIT License. See the LICENSE file for details.
+>
+> **Acknowledgements**
+> - This project leverages the `PDFSharpCore by Stefan Steiger` NuGet package for PDF functionality.
